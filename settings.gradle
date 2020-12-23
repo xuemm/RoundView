@@ -1,0 +1,3 @@
+include ':RoundView'
+include ':app'
+rootProject.name = "RoundView"
