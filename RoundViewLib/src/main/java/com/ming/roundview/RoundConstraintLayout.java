@@ -7,8 +7,6 @@ import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
- * @作者 luckly
- * @创建日期 2020/6/16 17:28
  * @类描述 用于需要圆角矩形框背景的LinearLayout的情况, 减少直接使用LinearLayout时引入的shape资源文件
  */
 public class RoundConstraintLayout extends ConstraintLayout {
