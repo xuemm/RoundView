@@ -2,25 +2,27 @@ package com.ming.roundview;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.LinearLayout;
 
-/**
- * @类描述 用于需要圆角矩形框背景的TextView的情况, 减少直接使用TextView时引入的shape资源文件
- */
-public class RoundTextView extends androidx.appcompat.widget.AppCompatTextView {
+import androidx.annotation.Nullable;
+
+
+public class RoundLinearLayout extends LinearLayout {
     private RoundViewDelegate delegate;
 
-    public RoundTextView(Context context) {
+    public RoundLinearLayout(Context context) {
         this(context, null);
     }
 
-    public RoundTextView(Context context, AttributeSet attrs) {
+    public RoundLinearLayout(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public RoundTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RoundLinearLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         delegate = new RoundViewDelegate(this, context, attrs);
     }
+
 
     /**
      * use delegate to set attr

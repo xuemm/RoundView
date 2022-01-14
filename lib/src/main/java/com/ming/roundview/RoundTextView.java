@@ -2,22 +2,21 @@ package com.ming.roundview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-/**
- * @类描述 用于需要圆角矩形框背景的LinearLayout的情况, 减少直接使用LinearLayout时引入的shape资源文件
- */
-public class RoundConstraintLayout extends ConstraintLayout {
+public class RoundTextView extends androidx.appcompat.widget.AppCompatTextView {
     private RoundViewDelegate delegate;
 
-    public RoundConstraintLayout(Context context) {
+    public RoundTextView(Context context) {
         this(context, null);
     }
 
-    public RoundConstraintLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public RoundTextView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public RoundTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         delegate = new RoundViewDelegate(this, context, attrs);
     }
 
@@ -32,7 +31,7 @@ public class RoundConstraintLayout extends ConstraintLayout {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (delegate.isWidthHeightEqual() && getWidth() > 0 && getHeight() > 0) {
             int max = Math.max(getWidth(), getHeight());
-            int measureSpec = View.MeasureSpec.makeMeasureSpec(max, View.MeasureSpec.EXACTLY);
+            int measureSpec = MeasureSpec.makeMeasureSpec(max, MeasureSpec.EXACTLY);
             super.onMeasure(measureSpec, measureSpec);
             return;
         }

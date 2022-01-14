@@ -14,11 +14,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-/**
- * @作者 luckly
- * @创建日期 2020/6/16 17:29
- * @类描述 所有圆角布局的统一处理
- */
 public class RoundViewDelegate {
     private View view;
     private Context context;

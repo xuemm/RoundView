@@ -2,29 +2,20 @@ package com.ming.roundview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
-import androidx.annotation.Nullable;
 
-/**
- * @类描述 用于需要圆角矩形框背景的LinearLayout的情况, 减少直接使用LinearLayout时引入的shape资源文件
- */
-public class RoundLinearLayout extends LinearLayout {
+public class RoundRelativeLayout extends RelativeLayout {
     private RoundViewDelegate delegate;
 
-    public RoundLinearLayout(Context context) {
+    public RoundRelativeLayout(Context context) {
         this(context, null);
     }
 
-    public RoundLinearLayout(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public RoundLinearLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+    public RoundRelativeLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
         delegate = new RoundViewDelegate(this, context, attrs);
     }
-
 
     /**
      * use delegate to set attr
@@ -35,6 +26,7 @@ public class RoundLinearLayout extends LinearLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (delegate.isWidthHeightEqual() && getWidth() > 0 && getHeight() > 0) {
             int max = Math.max(getWidth(), getHeight());
             int measureSpec = MeasureSpec.makeMeasureSpec(max, MeasureSpec.EXACTLY);
